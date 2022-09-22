@@ -1,6 +1,6 @@
 #
 # QuickJS Javascript Engine
-# 
+#
 # Copyright (c) 2017-2021 Fabrice Bellard
 # Copyright (c) 2017-2021 Charlie Gordon
 #
@@ -350,19 +350,19 @@ examples/test_fib: $(OBJDIR)/test_fib.o $(OBJDIR)/examples/fib.o libquickjs$(LTO
 	$(CC) $(LDFLAGS) -o $@ $^ $(LIBS)
 
 examples/fib.so: $(OBJDIR)/examples/fib.pic.o
-	$(CC) $(LDFLAGS) -shared -o $@ $^
+	$(CC) $(LDFLAGS) -shared -o $@ $^ libquickjs.a
 
 examples/point.so: $(OBJDIR)/examples/point.pic.o
-	$(CC) $(LDFLAGS) -shared -o $@ $^
+	$(CC) $(LDFLAGS) -shared -o $@ $^ libquickjs.a
 
 ###############################################################################
 # documentation
 
-DOCS=doc/quickjs.pdf doc/quickjs.html doc/jsbignum.pdf doc/jsbignum.html 
+DOCS=doc/quickjs.pdf doc/quickjs.html doc/jsbignum.pdf doc/jsbignum.html
 
 build_doc: $(DOCS)
 
-clean_doc: 
+clean_doc:
 	rm -f $(DOCS)
 
 doc/%.pdf: doc/%.texi
